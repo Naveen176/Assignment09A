@@ -1,28 +1,17 @@
-pipeline {
+pipeline{
     agent any
-    
-    stages {
-        stage('Checkout') {
-            steps {
-                git branch: 'main', url: 'https://github.com/Naveen176/Assignment09A.git'
+
+
+
+    stages{
+        stage('checkout'){
+            steps{
+                checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[credentialsId: 'github access', url: 'https://github.com/akshaypasumarthy/CRUD-1spring.git']]])
             }
         }
-        
-        stage('Build') {
-            steps {
-                sh 'mvn clean package'
-            }
-        }
-        
-        stage('Test') {
-            steps {
-                sh 'mvn test'
-            }
-        }
-        
-        stage('Deploy') {
-            steps {
-                sh 'mvn deploy'
+        stage('build'){
+            steps{
+               bat 'mvn package'
             }
         }
     }
