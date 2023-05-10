@@ -2,7 +2,7 @@ pipeline{
     agent any
 
 
-
+//spring mvc
     stages{
         stage('checkout'){
             steps{
