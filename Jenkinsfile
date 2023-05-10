@@ -1,7 +1,9 @@
 pipeline{
     agent any
 
-
+        tools {
+        maven 'maven3.6'
+    }
 //spring mvc
     stages{
         stage('checkout'){
