@@ -1,6 +1,6 @@
 pipeline{
     agent any
-    toold{
+    tools{
         maven 'maven3.6'
     }
 //spring mvc
